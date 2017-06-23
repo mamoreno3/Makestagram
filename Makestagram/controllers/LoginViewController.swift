@@ -7,9 +7,25 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseAuthUI
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var logInButton: UIButton!
 
+    @IBAction func logIn(_ sender: UIButton) {
+        print("login button touched")
+        
+        guard let authUI = FUIAuth.defaultAuthUI()
+        else {
+            return
+        }
+        
+        authUI.delegate = self
+        
+        let authViewController = authUI.authViewController()
+        present(authViewController, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +48,8 @@ class LoginViewController: UIViewController {
     }
     */
 
+}
+
+extension LoginViewController: FUIAuthDelegate {
+    
 }
