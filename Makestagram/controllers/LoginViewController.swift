@@ -7,8 +7,12 @@
 //
 
 import UIKit
+
 import FirebaseAuth
 import FirebaseAuthUI
+import FirebaseDatabase
+
+typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
@@ -50,6 +54,32 @@ class LoginViewController: UIViewController {
 
 }
 
+// handle login
 extension LoginViewController: FUIAuthDelegate {
-    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        // handle the error if users cant sign in
+        if let error = error {
+            assertionFailure("Error signing in: \(error.localizedDescription)")
+            return
+        }
+        
+        guard let user = user
+        else {
+            return
+        }
+        print("handle user signup/login")
+        
+        // read the data from the database, which is the user information
+        let rootRef = Database.database().reference()
+        let userRef = rootRef.child("users").child(user.uid)
+        
+        // determine if the data from the database is from old users or new users
+        userRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            if let userDict = snapshot.value as? [String: Any] {
+                print("old user, \(userDict.debugDescription)")
+            } else {
+                print("new user")
+            }
+        })
+    }
 }
