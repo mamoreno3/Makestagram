@@ -75,8 +75,8 @@ extension LoginViewController: FUIAuthDelegate {
         
         // determine if the data from the database is from old users or new users
         userRef.observeSingleEvent(of: .value, with: {(snapshot) in
-            if let userDict = snapshot.value as? [String: Any] {
-                print("old user, \(userDict.debugDescription)")
+            if let user = User(snapshot: snapshot) {
+                print("old user, \(user.username)")
             } else {
                 print("new user")
             }
