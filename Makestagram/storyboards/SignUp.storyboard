@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="pff-im-JiL">
+            <objects>
+                <viewController id="any-HK-Qsn" customClass="SignUpViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SFK-fU-g5i"/>
+                        <viewControllerLayoutGuide type="bottom" id="D0n-9s-rSt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NxR-SM-sa7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cxM-pa-P1t">
+                                <rect key="frame" x="20" y="20" width="335" height="106"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrG-Lx-3gF">
+                                        <rect key="frame" x="51.5" y="0.0" width="232" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up so you can connect with your friends. You can change your username later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRe-wJ-uUL">
+                                        <rect key="frame" x="4.5" y="56" width="326" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bM3-MK-vYW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZa-Hw-B1f">
+                                <rect key="frame" x="36" y="186" width="303" height="30"/>
+                                <color key="backgroundColor" red="0.093179993330000002" green="0.61171364780000004" blue="0.84475058319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Jc-Qk-O3r">
+                                <rect key="frame" x="36" y="136" width="303" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dZa-Hw-B1f" firstAttribute="leading" secondItem="NxR-SM-sa7" secondAttribute="leadingMargin" constant="20" id="36Y-3D-MtJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Jc-Qk-O3r" secondAttribute="trailing" constant="20" id="C2C-3i-Kyk"/>
+                            <constraint firstItem="dZa-Hw-B1f" firstAttribute="top" secondItem="7Jc-Qk-O3r" secondAttribute="bottom" constant="20" id="aZM-u6-kxW"/>
+                            <constraint firstItem="cxM-pa-P1t" firstAttribute="top" secondItem="SFK-fU-g5i" secondAttribute="bottom" id="anz-3c-D3i"/>
+                            <constraint firstItem="cxM-pa-P1t" firstAttribute="leading" secondItem="NxR-SM-sa7" secondAttribute="leading" constant="20" id="haf-2E-4nY"/>
+                            <constraint firstItem="7Jc-Qk-O3r" firstAttribute="leading" secondItem="NxR-SM-sa7" secondAttribute="leadingMargin" constant="20" id="kwd-Cs-LIz"/>
+                            <constraint firstItem="7Jc-Qk-O3r" firstAttribute="top" secondItem="cxM-pa-P1t" secondAttribute="bottom" constant="10" id="pOz-EO-YAj"/>
+                            <constraint firstAttribute="trailing" secondItem="cxM-pa-P1t" secondAttribute="trailing" constant="20" id="wK9-iA-uTx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dZa-Hw-B1f" secondAttribute="trailing" constant="20" id="zMA-9P-gRA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1tC-gE-7WH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="-8.5457271364317844"/>
+        </scene>
+    </scenes>
+</document>

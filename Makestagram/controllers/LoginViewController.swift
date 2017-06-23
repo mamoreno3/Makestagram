@@ -60,7 +60,6 @@ extension LoginViewController: FUIAuthDelegate {
         // handle the error if users cant sign in
         if let error = error {
             assertionFailure("Error signing in: \(error.localizedDescription)")
-            return
         }
         
         guard let user = user
