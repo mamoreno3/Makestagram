@@ -47,39 +47,28 @@ class LoginViewController: UIViewController {
 // handle login
 extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
-        // handle the error if users cant sign in
         if let error = error {
             assertionFailure("Error signing in: \(error.localizedDescription)")
         }
         
         guard let user = user
-        else {
-            return
+            else {
+                return
         }
-        
-        // read the data from the database, which is the user information
-        let rootRef = Database.database().reference()
-        let userRef = rootRef.child("users").child(user.uid)
-        
-        // determine if the data from the database is from old users or new users
-        userRef.observeSingleEvent(of: .value, with: {[unowned self] (snapshot) in
-            if let user = User(snapshot: snapshot) {
-                // set the user to the current user
+
+        UserService.show(forUID: user.uid) { (user) in
+            if let user = user {
                 User.setCurrent(user)
-                
-                print("old user, \(user.username)")
-                // redirect user to the main view controller if the user is the old user
+                print("old user \(user.username)")
                 let storyboard = UIStoryboard(name: "Main", bundle: .main)
                 
                 if let initialViewController = storyboard.instantiateInitialViewController() {
                     self.view.window?.rootViewController = initialViewController
                     self.view.window?.makeKeyAndVisible()
                 }
-                
             } else {
-                // redirect to the sign up view controller if the user is new
                 self.performSegue(withIdentifier: "toSignUp", sender: self)
             }
-        })
+        }
     }
 }

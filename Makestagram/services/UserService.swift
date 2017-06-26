@@ -29,4 +29,16 @@ struct UserService {
             })
         }
     }
+    
+    static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
+        let ref = Database.database().reference().child("users").child(uid)
+        
+        ref.observeSingleEvent(of: .value, with: {(snapshot) in
+            // if the user doesnt exist, execute nil, else execute the current user
+            guard let user = User(snapshot: snapshot) else {
+                return completion(nil)
+            }
+            completion(user)
+        })
+    }
 }
