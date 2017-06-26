@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		05061E601EFC6FEC0085CAC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05061E5E1EFC6FEC0085CAC8 /* Main.storyboard */; };
-		05061E621EFC71E70085CAC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05061E611EFC71E70085CAC8 /* ViewController.swift */; };
 		05080B581F018F9300631D51 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05080B571F018F9300631D51 /* UserService.swift */; };
 		05080B5C1F01B32300631D51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05080B5B1F01B32300631D51 /* Constants.swift */; };
 		05080B5E1F01B3CE00631D51 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05080B5D1F01B3CE00631D51 /* Storyboard+Utility.swift */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		05061E5E1EFC6FEC0085CAC8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = storyboards/Main.storyboard; sourceTree = "<group>"; };
-		05061E611EFC71E70085CAC8 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = controllers/ViewController.swift; sourceTree = "<group>"; };
 		05061E631EFC72010085CAC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = supporting/Info.plist; sourceTree = "<group>"; };
 		05080B571F018F9300631D51 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = services/UserService.swift; sourceTree = "<group>"; };
 		05080B5B1F01B32300631D51 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = supporting/Constants.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		05061E5A1EFC4B770085CAC8 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				05061E611EFC71E70085CAC8 /* ViewController.swift */,
 				059DEE011EFC75080062F57C /* LoginViewController.swift */,
 				056CCC031EFD8C2B007D0CAB /* SignUpViewController.swift */,
 			);
@@ -301,7 +298,6 @@
 				059DEE021EFC75080062F57C /* LoginViewController.swift in Sources */,
 				05080B581F018F9300631D51 /* UserService.swift in Sources */,
 				05080B5E1F01B3CE00631D51 /* Storyboard+Utility.swift in Sources */,
-				05061E621EFC71E70085CAC8 /* ViewController.swift in Sources */,
 				05080B5C1F01B32300631D51 /* Constants.swift in Sources */,
 				0591409F1EFC31B70058CED1 /* AppDelegate.swift in Sources */,
 				056CCC041EFD8C2B007D0CAB /* SignUpViewController.swift in Sources */,
