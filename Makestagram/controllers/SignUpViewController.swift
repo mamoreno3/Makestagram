@@ -34,23 +34,12 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        // create a dictionary to store the username from the text field
-        let userAttrs = ["username": username]
-        
-        // create reference to the uid of the username in the database
-        let ref = Database.database().reference().child("users").child(firUser.uid)
-        // add the user to the database
-        ref.setValue(userAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
+        UserService.create(firUser, username: username) { (user) in
+            guard let user = user
+            else {
                 return
             }
-            ref.observeSingleEvent(of: .value, with: {(snapshot) in
-                let user = User(snapshot: snapshot)
-                
-                // handle the new user who just got created
-            })
-            
+            print("create new user: \(user.username)")
         }
     }
 
