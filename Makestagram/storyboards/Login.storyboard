@@ -61,7 +61,6 @@
                                 <state key="normal" title="Register or Log In"/>
                                 <connections>
                                     <action selector="logIn:" destination="Ved-6y-UcV" eventType="touchUpInside" id="CWa-FI-hsA"/>
-                                    <segue destination="8SS-qr-dqY" kind="show" id="Z56-rz-8wf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,6 +78,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9NA-4X-bel"/>
+                    <connections>
+                        <segue destination="8SS-qr-dqY" kind="show" identifier="toSignUp" id="Edy-u0-JbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U2-ne-nDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,7 +94,7 @@
                         <viewControllerLayoutGuide type="top" id="Alw-wW-eyw"/>
                         <viewControllerLayoutGuide type="bottom" id="A7Y-Mi-6NX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IsR-Nj-q2c" customClass="SignUp">
+                    <view key="view" contentMode="scaleToFill" id="IsR-Nj-q2c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -117,14 +119,14 @@
                                     <constraint firstAttribute="height" constant="130" id="T8j-yI-0jX"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n45-gM-kmz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n45-gM-kmz">
                                 <rect key="frame" x="36" y="191" width="303" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2bO-CA-vi4"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4H-0M-kba">
                                 <rect key="frame" x="36" y="267" width="303" height="35"/>
@@ -133,6 +135,9 @@
                                 <state key="normal" title="Coninue &gt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpContinue:" destination="8SS-qr-dqY" eventType="touchUpInside" id="0tF-Gy-GOl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,10 +154,13 @@
                             <constraint firstItem="aeE-rX-g4d" firstAttribute="leading" secondItem="IsR-Nj-q2c" secondAttribute="leading" constant="20" id="wG3-Nv-JoW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usernameTextField" destination="n45-gM-kmz" id="Y9E-tS-HWZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ym-Cq-rNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="74"/>
+            <point key="canvasLocation" x="1246" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PFZ-Me-scH">
