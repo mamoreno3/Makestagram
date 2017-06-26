@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             // set the user to current user in the class
-            User.setCurrent(user)
+            User.setCurrent(user, writeToUserDefaults: true)
             
             print("create new user: \(user.username)")
             
