@@ -40,6 +40,13 @@ class SignUpViewController: UIViewController {
                 return
             }
             print("create new user: \(user.username)")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            
+            if let initialViewController = storyboard.instantiateInitialViewController() {
+                self.view.window?.rootViewController = initialViewController
+                self.view.window?.makeKeyAndVisible()
+            }
         }
     }
 
