@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-174" y="18"/>
         </scene>
-        <!--View Controller-->
+        <!--Find Friends View Controller-->
         <scene sceneID="Ad3-PH-rak">
             <objects>
-                <viewController id="AY9-7L-ger" sceneMemberID="viewController">
+                <viewController id="AY9-7L-ger" customClass="FindFriendsViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iEW-On-eh8"/>
                         <viewControllerLayoutGuide type="bottom" id="ENO-Rf-E4i"/>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="-175" y="850"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="Hbl-F1-h6A">
             <objects>
-                <viewController id="1aT-Et-Lpl" sceneMemberID="viewController">
+                <viewController id="1aT-Et-Lpl" customClass="HomeViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Kb-d1-khk"/>
                         <viewControllerLayoutGuide type="bottom" id="0xb-qb-b2j"/>
