@@ -39,6 +39,9 @@ class SignUpViewController: UIViewController {
             else {
                 return
             }
+            // set the user to current user in the class
+            User.setCurrent(user)
+            
             print("create new user: \(user.username)")
             
             let storyboard = UIStoryboard(name: "Main", bundle: .main)

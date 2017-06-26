@@ -11,6 +11,7 @@ import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class User {
+    // store user uid and username
     let uid: String
     let username: String
     
@@ -32,5 +33,19 @@ class User {
         self.uid = snapshot.key
         self.username = username
         
+    }
+    
+    // singleton for users
+    private static var _current: User?
+    
+    static var current: User {
+        guard let currentUser = _current else {
+            fatalError("Error, user does not exist")
+        }
+        return currentUser
+    }
+    
+    static func setCurrent(_ user: User) {
+        _current = user
     }
 }

@@ -64,6 +64,9 @@ extension LoginViewController: FUIAuthDelegate {
         // determine if the data from the database is from old users or new users
         userRef.observeSingleEvent(of: .value, with: {[unowned self] (snapshot) in
             if let user = User(snapshot: snapshot) {
+                // set the user to the current user
+                User.setCurrent(user)
+                
                 print("old user, \(user.username)")
                 // redirect user to the main view controller if the user is the old user
                 let storyboard = UIStoryboard(name: "Main", bundle: .main)
