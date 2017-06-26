@@ -65,7 +65,16 @@ extension LoginViewController: FUIAuthDelegate {
         userRef.observeSingleEvent(of: .value, with: {[unowned self] (snapshot) in
             if let user = User(snapshot: snapshot) {
                 print("old user, \(user.username)")
+                // redirect user to the main view controller if the user is the old user
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+                }
+                
             } else {
+                // redirect to the sign up view controller if the user is new
                 self.performSegue(withIdentifier: "toSignUp", sender: self)
             }
         })
