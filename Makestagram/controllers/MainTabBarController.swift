@@ -16,6 +16,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         photoHelper.completionHandler = { image in
+            // create the post for images
             PostService.create(for: image)
         }
     
@@ -33,7 +34,7 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 1 {
-            print("take photo")
+            // trigger the taking/choosing photo action
             photoHelper.presentActionSheet(from: self)
             return false
         } else {
