@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// determine if the userdefault has been set, if yes then change the view to main immediately
 extension AppDelegate {
     func configureIntitialRootViewController(for window: UIWindow?) {
         let defaults = UserDefaults.standard

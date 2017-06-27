@@ -36,7 +36,8 @@ class User: NSObject {
         super.init()
         
     }
-
+    
+    // if the user has already logged in, replace the uid and username values with the ones in userdefaults
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: Constants.UserDefaults.uid) as? String,
             let username = aDecoder.decodeObject(forKey: Constants.UserDefaults.username) as? String
@@ -59,6 +60,8 @@ class User: NSObject {
         return currentUser
     }
     
+    // set the uid and username in userdefaults
+    // takes 2 paramenters, one is the current user and the other determines whether it should write to the userdefault or not.
     class func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
         if writeToUserDefaults {
             let data = NSKeyedArchiver.archivedData(withRootObject: user)

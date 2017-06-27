@@ -58,6 +58,7 @@ extension LoginViewController: FUIAuthDelegate {
 
         UserService.show(forUID: user.uid) { (user) in
             if let user = user {
+                // set the current user to the current user in the class
                 User.setCurrent(user, writeToUserDefaults: true)
                 print("old user \(user.username)")
                 
