@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcR-OI-MkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-174" y="18"/>
+            <point key="canvasLocation" x="-1137" y="480"/>
         </scene>
         <!--Find Friends View Controller-->
         <scene sceneID="Ad3-PH-rak">
@@ -45,26 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3I-Qh-f7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175" y="850"/>
-        </scene>
-        <!--Home View Controller-->
-        <scene sceneID="Hbl-F1-h6A">
-            <objects>
-                <viewController id="1aT-Et-Lpl" customClass="HomeViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3Kb-d1-khk"/>
-                        <viewControllerLayoutGuide type="bottom" id="0xb-qb-b2j"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qTi-HR-AAU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_home_black" id="yGY-iV-2MJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hDq-9D-7vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-174" y="-637"/>
+            <point key="canvasLocation" x="-2047" y="480"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="vIa-p7-zgK">
@@ -76,19 +57,28 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1aT-Et-Lpl" kind="relationship" relationship="viewControllers" id="DNO-dG-S3p"/>
+                        <segue destination="ivh-my-O6C" kind="relationship" relationship="viewControllers" id="DNO-dG-S3p"/>
                         <segue destination="frU-Mk-Uq8" kind="relationship" relationship="viewControllers" id="B9S-4a-ibc"/>
                         <segue destination="AY9-7L-ger" kind="relationship" relationship="viewControllers" id="FQp-Cj-0Lr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Aa-i5-3eG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1126" y="-309"/>
+            <point key="canvasLocation" x="-1327" y="-320"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="qz2-0S-oF4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="ivh-my-O6C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bcS-bE-lzg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywp-ta-GS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-360" y="165"/>
         </scene>
     </scenes>
     <resources>
         <image name="tab_find_friends_black" width="25" height="25"/>
-        <image name="tab_home_black" width="25" height="25"/>
         <image name="tab_plus_black" width="25" height="25"/>
     </resources>
 </document>

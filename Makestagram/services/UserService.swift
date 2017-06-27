@@ -41,4 +41,18 @@ struct UserService {
             completion(user)
         })
     }
+    
+    static func posts(for user: User, completion: @escaping ([Post]) -> Void) {
+        let ref = Database.database().reference().child("posts").child(user.uid)
+        
+        // retrieve the data from the image source in the database, return the posts from the given users
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            
+            let posts = snapshot.reversed().flatMap(Post.init)
+            completion(posts)
+        })
+    }
 }
