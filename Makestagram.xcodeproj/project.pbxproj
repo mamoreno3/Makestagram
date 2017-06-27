@@ -19,6 +19,8 @@
 		056CCBFE1EFD8680007D0CAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056CCBFD1EFD8680007D0CAB /* User.swift */; };
 		056CCC041EFD8C2B007D0CAB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056CCC031EFD8C2B007D0CAB /* SignUpViewController.swift */; };
 		059071521F02CB2200BFEC66 /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059071511F02CB2200BFEC66 /* MGPhotoHelper.swift */; };
+		059071541F03005700BFEC66 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059071531F03005700BFEC66 /* StorageService.swift */; };
+		059071581F03039A00BFEC66 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059071571F03039A00BFEC66 /* PostService.swift */; };
 		0591409F1EFC31B70058CED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0591409E1EFC31B70058CED1 /* AppDelegate.swift */; };
 		059140B11EFC33740058CED1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 059140B01EFC33740058CED1 /* Podfile */; };
 		059DEE021EFC75080062F57C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059DEE011EFC75080062F57C /* LoginViewController.swift */; };
@@ -41,6 +43,8 @@
 		056CCBFD1EFD8680007D0CAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		056CCC031EFD8C2B007D0CAB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = controllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		059071511F02CB2200BFEC66 /* MGPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGPhotoHelper.swift; path = helpers/MGPhotoHelper.swift; sourceTree = "<group>"; };
+		059071531F03005700BFEC66 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = services/StorageService.swift; sourceTree = "<group>"; };
+		059071571F03039A00BFEC66 /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostService.swift; path = services/PostService.swift; sourceTree = "<group>"; };
 		0591409B1EFC31B70058CED1 /* Makestagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makestagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0591409E1EFC31B70058CED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		059140B01EFC33740058CED1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				05080B571F018F9300631D51 /* UserService.swift */,
+				059071531F03005700BFEC66 /* StorageService.swift */,
+				059071571F03039A00BFEC66 /* PostService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				056CCBFE1EFD8680007D0CAB /* User.swift in Sources */,
+				059071541F03005700BFEC66 /* StorageService.swift in Sources */,
 				059DEE021EFC75080062F57C /* LoginViewController.swift in Sources */,
 				05080B641F01D6DC00631D51 /* MainTabBarController.swift in Sources */,
 				05080B581F018F9300631D51 /* UserService.swift in Sources */,
@@ -315,6 +322,7 @@
 				05080B5E1F01B3CE00631D51 /* Storyboard+Utility.swift in Sources */,
 				05080B621F01BDC900631D51 /* FindFriendsViewController.swift in Sources */,
 				05080B5C1F01B32300631D51 /* Constants.swift in Sources */,
+				059071581F03039A00BFEC66 /* PostService.swift in Sources */,
 				0591409F1EFC31B70058CED1 /* AppDelegate.swift in Sources */,
 				056CCC041EFD8C2B007D0CAB /* SignUpViewController.swift in Sources */,
 			);

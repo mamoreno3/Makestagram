@@ -37,7 +37,7 @@ class MGPhotoHelper: NSObject {
         viewController.present(alertController, animated: true)
     }
     
-    // method that invoke the UI for the camera and library
+    // method that invoke the UI for the camera and library, including opening the photo library and
     func presentImagePickerController(with sourceType: UIImagePickerControllerSourceType, from viewController: UIViewController) {
         // UI for the library and camera
         let imagePickerController = UIImagePickerController()
@@ -50,6 +50,7 @@ class MGPhotoHelper: NSObject {
     }
 }
 
+// use delegate to inherit from the image picker controller, which helps collecting the image info after choosing
 extension MGPhotoHelper: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
