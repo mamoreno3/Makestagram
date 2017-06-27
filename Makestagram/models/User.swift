@@ -6,6 +6,8 @@
 //  Copyright © 2017 Make School. All rights reserved.
 //
 
+// This class holds the singleton for users and authentication for users
+
 import Foundation
 
 import FirebaseDatabase.FIRDataSnapshot
