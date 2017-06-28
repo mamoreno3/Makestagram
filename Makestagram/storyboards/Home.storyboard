@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,8 +27,48 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostHeaderCell" rowHeight="54" id="MLO-dT-u6d" customClass="PostHeaderCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLO-dT-u6d" id="lQG-Lj-OHE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFU-hT-If2">
+                                                    <rect key="frame" x="331" y="4" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="XdU-li-FoE"/>
+                                                        <constraint firstAttribute="height" constant="44" id="cvL-Kn-icL"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_options_black">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="optionsButtonTapped:" destination="MLO-dT-u6d" eventType="touchUpInside" id="5B6-FT-LTg"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-CW-jKE">
+                                                    <rect key="frame" x="8" y="8" width="76" height="37.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="g5N-CW-jKE" firstAttribute="top" secondItem="lQG-Lj-OHE" secondAttribute="topMargin" id="6mT-hC-xCH"/>
+                                                <constraint firstItem="g5N-CW-jKE" firstAttribute="leading" secondItem="lQG-Lj-OHE" secondAttribute="leadingMargin" id="IbJ-0x-d1J"/>
+                                                <constraint firstAttribute="trailing" secondItem="kFU-hT-If2" secondAttribute="trailing" id="Tbr-1J-nLx"/>
+                                                <constraint firstItem="kFU-hT-If2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g5N-CW-jKE" secondAttribute="trailing" constant="15" id="oIO-Cm-P7s"/>
+                                                <constraint firstItem="kFU-hT-If2" firstAttribute="centerY" secondItem="lQG-Lj-OHE" secondAttribute="centerY" id="r9z-fV-yRX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="g5N-CW-jKE" secondAttribute="bottom" id="sJT-Mm-wtv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="usernameLabel" destination="g5N-CW-jKE" id="dg8-49-ocz"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostImageCell" rowHeight="375" id="OYg-wf-3ck" customClass="PostImageCell" customModule="Makestagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="82" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYg-wf-3ck" id="899-zg-gPx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
@@ -47,6 +88,46 @@
                                         <connections>
                                             <outlet property="postImageView" destination="bhH-zx-cNU" id="Jhl-l5-YI2"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostActionCell" rowHeight="46" id="oda-iL-uWY" customClass="PostActionCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="457" width="375" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oda-iL-uWY" id="mCA-sU-9Od">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhZ-ej-pST">
+                                                    <rect key="frame" x="2" y="0.0" width="45.5" height="45.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="QhZ-ej-pST" secondAttribute="height" multiplier="1:1" id="xxY-XQ-aVC"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_heart_black_outline"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDs-rJ-tQq">
+                                                    <rect key="frame" x="47.5" y="8" width="47.5" height="29.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-ff-48f">
+                                                    <rect key="frame" x="280.5" y="0.0" width="79.5" height="45.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iDs-rJ-tQq" firstAttribute="bottom" secondItem="mCA-sU-9Od" secondAttribute="bottomMargin" id="1kE-AG-CON"/>
+                                                <constraint firstItem="QhZ-ej-pST" firstAttribute="leading" secondItem="mCA-sU-9Od" secondAttribute="leading" constant="2" id="3Rc-X5-QPa"/>
+                                                <constraint firstAttribute="bottom" secondItem="QhZ-ej-pST" secondAttribute="bottom" id="5Er-av-adh"/>
+                                                <constraint firstItem="iDs-rJ-tQq" firstAttribute="top" secondItem="mCA-sU-9Od" secondAttribute="topMargin" id="ASL-1g-wDk"/>
+                                                <constraint firstAttribute="bottom" secondItem="MGK-ff-48f" secondAttribute="bottom" id="KKn-yH-bls"/>
+                                                <constraint firstItem="MGK-ff-48f" firstAttribute="top" secondItem="mCA-sU-9Od" secondAttribute="top" id="Sy6-0E-UUZ"/>
+                                                <constraint firstItem="iDs-rJ-tQq" firstAttribute="leading" secondItem="QhZ-ej-pST" secondAttribute="trailing" id="bds-fy-5xU"/>
+                                                <constraint firstAttribute="trailing" secondItem="MGK-ff-48f" secondAttribute="trailing" constant="15" id="f3u-tC-t6B"/>
+                                                <constraint firstItem="QhZ-ej-pST" firstAttribute="top" secondItem="mCA-sU-9Od" secondAttribute="top" id="iIT-JJ-2rb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -94,6 +175,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_heart_black_outline" width="24" height="24"/>
+        <image name="btn_options_black" width="24" height="24"/>
         <image name="tab_home_black" width="25" height="25"/>
     </resources>
 </document>

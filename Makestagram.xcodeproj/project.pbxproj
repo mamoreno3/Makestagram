@@ -30,6 +30,8 @@
 		059DEE021EFC75080062F57C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059DEE011EFC75080062F57C /* LoginViewController.swift */; };
 		05AB2EB41EFC3BDB00E408FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AB2EB31EFC3BDB00E408FD /* Assets.xcassets */; };
 		05C28C041F0321220042107B /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C28C031F0321220042107B /* PostImageCell.swift */; };
+		05DC75001F032C8F0052183A /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC74FF1F032C8F0052183A /* PostHeaderCell.swift */; };
+		05DC75041F041C600052183A /* PostActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC75031F041C600052183A /* PostActionCell.swift */; };
 		05DF44A21F01888A00C1D5F2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF44A11F01888A00C1D5F2 /* AdSupport.framework */; };
 		7BDB0D18A256902AC124DB08 /* Pods_Makestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51B3E610AB872D8C1A710DC /* Pods_Makestagram.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,8 @@
 		059DEE011EFC75080062F57C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		05AB2EB31EFC3BDB00E408FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05C28C031F0321220042107B /* PostImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostImageCell.swift; path = views/PostImageCell.swift; sourceTree = "<group>"; };
+		05DC74FF1F032C8F0052183A /* PostHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostHeaderCell.swift; path = views/PostHeaderCell.swift; sourceTree = "<group>"; };
+		05DC75031F041C600052183A /* PostActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostActionCell.swift; path = views/PostActionCell.swift; sourceTree = "<group>"; };
 		05DF44A11F01888A00C1D5F2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0739D69A9F99F9357627C955 /* Pods-Makestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.release.xcconfig"; sourceTree = "<group>"; };
 		161017278488DE8DC162BCF1 /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				05C28C031F0321220042107B /* PostImageCell.swift */,
+				05DC74FF1F032C8F0052183A /* PostHeaderCell.swift */,
+				05DC75031F041C600052183A /* PostActionCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				059DEE021EFC75080062F57C /* LoginViewController.swift in Sources */,
 				05080B641F01D6DC00631D51 /* MainTabBarController.swift in Sources */,
 				05080B581F018F9300631D51 /* UserService.swift in Sources */,
+				05DC75041F041C600052183A /* PostActionCell.swift in Sources */,
 				0590715A1F03078F00BFEC66 /* Post.swift in Sources */,
 				05C28C041F0321220042107B /* PostImageCell.swift in Sources */,
 				0590715C1F03120200BFEC66 /* UIImage+Size.swift in Sources */,
@@ -352,6 +359,7 @@
 				05080B5C1F01B32300631D51 /* Constants.swift in Sources */,
 				059071581F03039A00BFEC66 /* PostService.swift in Sources */,
 				0591409F1EFC31B70058CED1 /* AppDelegate.swift in Sources */,
+				05DC75001F032C8F0052183A /* PostHeaderCell.swift in Sources */,
 				056CCC041EFD8C2B007D0CAB /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
