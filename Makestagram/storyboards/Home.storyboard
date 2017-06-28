@@ -102,6 +102,9 @@
                                                         <constraint firstAttribute="width" secondItem="QhZ-ej-pST" secondAttribute="height" multiplier="1:1" id="xxY-XQ-aVC"/>
                                                     </constraints>
                                                     <state key="normal" image="btn_heart_black_outline"/>
+                                                    <connections>
+                                                        <action selector="likesButtonTapped:" destination="oda-iL-uWY" eventType="touchUpInside" id="y5v-uu-nXD"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDs-rJ-tQq">
                                                     <rect key="frame" x="47.5" y="8" width="47.5" height="29.5"/>
@@ -129,6 +132,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likesButtonTapped" destination="QhZ-ej-pST" id="4UQ-1D-uw1"/>
                                             <outlet property="likesLabel" destination="iDs-rJ-tQq" id="uHy-If-27O"/>
                                             <outlet property="timeAgoLabel" destination="MGK-ff-48f" id="EFs-Ip-CMf"/>
                                         </connections>

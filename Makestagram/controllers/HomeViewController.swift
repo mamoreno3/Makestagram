@@ -14,6 +14,14 @@ class HomeViewController: UIViewController {
     
     var posts = [Post]()
 
+    // this allows us to convert a date to a formatted string
+    let timestampFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        
+        return dateFormatter
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,18 +48,12 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // this allows us to convert a date to a formatted string
-        let timestampFormatter: DateFormatter = {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            
-            return dateFormatter
-        }()
         
         let post = posts[indexPath.section]
         
@@ -69,7 +71,10 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostActionCell") as! PostActionCell
-            cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
+            
+            cell.delegate = self
+            
+            configureCell(cell, with: post)
             
             return cell
         default:
@@ -80,6 +85,12 @@ extension HomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return posts.count
+    }
+    
+    func configureCell(_ cell: PostActionCell, with post: Post) {
+        cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
+        cell.likesLabel.text = "\(post.likeCount) likes"
+        cell.likesButton.isSelected = post.isLiked
     }
 }
 
@@ -96,5 +107,11 @@ extension HomeViewController: UITableViewDelegate {
         default:
             fatalError()
         }
+    }
+}
+
+extension HomeViewController: PostActionCellDelegate {
+    func didTapLikeButton(_ likeButton: UIButton, on cell: PostActionCell) {
+        print("did tap like button")
     }
 }

@@ -17,6 +17,7 @@ class Post {
     let creationDate: Date
     var likeCount: Int
     let poster: User
+    var isLiked = false
     
     var dictValue: [String: Any] {
         let createdAgo = creationDate.timeIntervalSince1970
@@ -47,6 +48,7 @@ class Post {
         let imageHeight = dict["image_height"] as? CGFloat,
         let createdAgo = dict["created_at"] as? TimeInterval,
             // basically we dont even have to go through dict, just use userDict immediately
+        let userDict = dict["poster"] as? [String: Any],
         let uid = userDict["uid"] as? String,
         let username = userDict["username"] as? String
         else {

@@ -10,6 +10,8 @@ import Foundation
 import FirebaseDatabase
 
 class LikeService {
+    
+    // like the post
     static func create(for post: Post, success: @escaping (Bool) -> Void) {
         // get the current post
         guard let key = post.key else {
@@ -44,6 +46,7 @@ class LikeService {
         }
     }
     
+    // unlike the post
     static func delete(for post: Post, success: @escaping (Bool) -> Void) {
         guard let key = post.key else {
             return success(false)
@@ -62,7 +65,7 @@ class LikeService {
             likeCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
                 let currentCount = mutableData.value as? Int ?? 0
                 
-                mutableData = currentCount - 1
+                mutableData.value = currentCount - 1
                 return TransactionResult.success(withValue: mutableData)
             }, andCompletionBlock: {(error, _, _) in
                 if let error = error {
@@ -72,5 +75,21 @@ class LikeService {
                 success(true)
             })
         }
+    }
+    
+    static func isPostLiked(_ post: Post, byCurrentUserWithCompletion completion: @escaping (Bool) -> Void) {
+        guard let postKey = post.key else {
+            assertionFailure("post must have a key")
+            return completion(false)
+        }
+        
+        let likesRef = Database.database().reference().child("postLikes").child(postKey)
+        likesRef.queryEqual(toValue: nil, childKey: User.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? [String: Bool] {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
     }
 }
