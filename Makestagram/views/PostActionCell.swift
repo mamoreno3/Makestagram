@@ -9,7 +9,9 @@
 import UIKit
 
 class PostActionCell: UITableViewCell {
+    @IBOutlet weak var likesLabel: UILabel!
 
+    @IBOutlet weak var timeAgoLabel: UILabel!
     static let height: CGFloat = 46
     
     override func awakeFromNib() {

@@ -45,6 +45,13 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // this allows us to convert a date to a formatted string
+        let timestampFormatter: DateFormatter = {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            
+            return dateFormatter
+        }()
         
         let post = posts[indexPath.section]
         
@@ -62,6 +69,7 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostActionCell") as! PostActionCell
+            cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
             
             return cell
         default:

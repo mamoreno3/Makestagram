@@ -32,6 +32,7 @@ struct PostService {
         let post = Post(imageUrl: urlString, imageHeight: aspectHeight)
         let dict = post.dictValue
         
+        // update the db
         let postRef = Database.database().reference().child("posts").child(currentUser.uid).childByAutoId()
         
         postRef.updateChildValues(dict)
