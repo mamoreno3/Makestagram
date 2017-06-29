@@ -86,6 +86,7 @@ class LikeService {
         }
         
         let likesRef = Database.database().reference().child("postLikes").child(postKey)
+        
         likesRef.queryEqual(toValue: nil, childKey: User.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? [String: Bool] {
                 completion(true)
