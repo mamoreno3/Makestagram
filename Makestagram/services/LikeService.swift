@@ -40,8 +40,9 @@ class LikeService {
                 if let error = error {
                     assertionFailure(error.localizedDescription)
                     success(false)
+                } else {
+                    success(true)
                 }
-                success(true)
             })
         }
     }
@@ -71,8 +72,9 @@ class LikeService {
                 if let error = error {
                     assertionFailure(error.localizedDescription)
                     success(false)
+                } else {
+                    success(true)
                 }
-                success(true)
             })
         }
     }
@@ -91,5 +93,13 @@ class LikeService {
                 completion(false)
             }
         })
+    }
+    
+    static func setIsLiked(_ isLiked: Bool, for post: Post, success: @escaping (Bool) -> Void) {
+        if isLiked {
+            create(for: post, success: success)
+        } else {
+            delete(for: post, success: success)
+        }
     }
 }

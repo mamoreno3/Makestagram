@@ -59,6 +59,7 @@ struct UserService {
                     .reversed()
                     .flatMap {
                         guard let post = Post(snapshot: $0) else {
+                            print("1")
                             return nil
                         }
                         
@@ -68,7 +69,6 @@ struct UserService {
                             post.isLiked = isLiked
                             dispatchGroup.leave()
                         }
-                        
                         return post
                     }
             dispatchGroup.notify(queue: .main, execute: {

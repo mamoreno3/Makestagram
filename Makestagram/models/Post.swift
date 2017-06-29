@@ -28,7 +28,7 @@ class Post {
                 "image_height": imageHeight,
                 "created_at": createdAgo,
                 "like_count": likeCount,
-                "username": userDict]
+                "poster": userDict]
     }
     
     init(imageUrl: String, imageHeight: CGFloat) {
@@ -42,13 +42,13 @@ class Post {
     // init for posts based on the user info object
     // this kind of init can be nil, if nil, it will use the init above
     init?(snapshot: DataSnapshot) {
+        // data from the database
         guard let dict = snapshot.value as? [String: Any],
-        let likeCount = dict["like_count"] as? Int,
         let imageUrl = dict["image_url"] as? String,
         let imageHeight = dict["image_height"] as? CGFloat,
         let createdAgo = dict["created_at"] as? TimeInterval,
-            // basically we dont even have to go through dict, just use userDict immediately
-        let userDict = dict["poster"] as? [String: Any],
+        let likeCount = dict["like_count"] as? Int,
+        let userDict = dict["username"] as? [String: Any],
         let uid = userDict["uid"] as? String,
         let username = userDict["username"] as? String
         else {

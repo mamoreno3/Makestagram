@@ -112,6 +112,34 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: PostActionCellDelegate {
     func didTapLikeButton(_ likeButton: UIButton, on cell: PostActionCell) {
-        print("did tap like button")
+        guard let indexPath = tableView.indexPath(for: cell)
+        else {
+            return
+        }
+        
+        likeButton.isUserInteractionEnabled = false
+        
+        let post = posts[indexPath.section]
+        
+        LikeService.setIsLiked(!post.isLiked, for: post) { (success) in
+            defer {
+                likeButton.isUserInteractionEnabled = true
+            }
+            
+            guard success else {
+                return
+            }
+            
+            post.likeCount += !post.isLiked ? 1 : -1
+            post.isLiked = !post.isLiked
+            
+            guard let cell = self.tableView.cellForRow(at: indexPath) as? PostActionCell else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.configureCell(cell, with: post)
+            }
+        }
     }
 }
