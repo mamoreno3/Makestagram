@@ -11,13 +11,14 @@ import FirebaseDatabase
 
 struct FollowService {
     // user is other users, User.current is the current usr who is logged in
+    // 2 branches, followers and people who user is following
     private static func followUser(_ user: User, forCurrentUserWithSuccess success: @escaping (Bool) -> Void) {
         let currentUID = User.current.uid
         let followData = ["followers/\(user.uid)/\(currentUID)": true,
                           "following/\(currentUID)/\(user.uid)": true]
         
         let ref = Database.database().reference()
-        ref.updateChildValues(followData) {(error, _) in
+        ref.updateChildValues(followData) { (error, _) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
             }
@@ -33,7 +34,7 @@ struct FollowService {
                             "following/\(currentUID)/\(user.uid)": NSNull()]
         
         let ref = Database.database().reference()
-        ref.updateChildValues(unfollowData) {(error, _) in
+        ref.updateChildValues(unfollowData) { (error, _) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
             }
@@ -41,6 +42,7 @@ struct FollowService {
         }
     }
     
+    // followee: the user is being followed
     static func setIsFollowing(_ isFollowing: Bool, fromCurrentUserTo followee: User, success: @escaping (Bool) -> Void) {
         if isFollowing {
             followUser(followee, forCurrentUserWithSuccess: success)

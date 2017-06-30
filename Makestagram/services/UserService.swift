@@ -87,6 +87,7 @@ struct UserService {
                 return completion([])
             }
             
+            // get the list of users aside from the current user
             let users =
                 snapshot
                     .flatMap(User.init)
@@ -95,9 +96,8 @@ struct UserService {
             }
             
             let dispatchGroup = DispatchGroup()
-            users.forEach{(user) in
+            users.forEach{ (user) in
                 dispatchGroup.enter()
-                
                 FollowService.isUserFollowed(user) { (isFollowed) in
                     user.isFollowed = isFollowed
                     dispatchGroup.leave()

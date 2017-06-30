@@ -65,6 +65,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AY9-7L-ger" id="GvE-Ho-naC"/>
+                                    <outlet property="delegate" destination="AY9-7L-ger" id="qrT-y4-nhV"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3I-Qh-f7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="505"/>
+            <point key="canvasLocation" x="-785" y="489"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TNn-zY-jTp">
@@ -102,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7z4-sN-KqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2047.2" y="479.91004497751129"/>
+            <point key="canvasLocation" x="-1687" y="489"/>
         </scene>
     </scenes>
     <resources>

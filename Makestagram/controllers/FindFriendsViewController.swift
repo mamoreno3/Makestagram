@@ -14,34 +14,36 @@ class FindFriendsViewController: UIViewController {
     
     var users = [User]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UserService.usersExcludingCurrentUser{ [unowned self] (users) in
+            self.users = users
+            DispatchQueue.main.async {
+                print("hre")
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 71
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        UserService.usersExcludingCurrentUser{ [unowned self] (users) in
-            self.users = users
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        print("main users \(self.users.count)")
     }
 }
 
 extension FindFriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("user: \(users.count)")
         return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FindFriendsCall") as! FindFriendsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FindFriendsCell") as! FindFriendsCell
         
         cell.delegate = self
         configure(cell: cell, atIndexPath: indexPath)
@@ -50,6 +52,7 @@ extension FindFriendsViewController: UITableViewDataSource {
     
     func configure(cell: FindFriendsCell, atIndexPath indexPath: IndexPath) {
         let user = users[indexPath.row]
+        
         cell.usernameLabel.text = user.username
         cell.followButton.isSelected = user.isFollowed
     }
@@ -67,6 +70,7 @@ extension FindFriendsViewController: FindFriendsCellDelegate {
         
         
         // enable the button when the users has not followed
+        // followee is the person being followed
         FollowService.setIsFollowing(!followee.isFollowed, fromCurrentUserTo: followee) { (success) in
             defer {
                 followButton.isUserInteractionEnabled = true
