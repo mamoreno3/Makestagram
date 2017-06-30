@@ -109,4 +109,17 @@ struct UserService {
             })
         })
     }
+    
+    static func followers(for user: User, completion: @escaping ([String]) -> Void) {
+        let followerRef = Database.database().reference().child("followers").child(user.uid)
+        
+        followerRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let followerDict = snapshot.value as? [String : Bool] else {
+                return completion([])
+            }
+            
+            let followersKeys = Array(followerDict.keys)
+            completion(followersKeys)
+        })
+    }
 }

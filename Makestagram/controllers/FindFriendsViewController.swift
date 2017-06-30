@@ -32,13 +32,11 @@ class FindFriendsViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 71
-        print("main users \(self.users.count)")
     }
 }
 
 extension FindFriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("user: \(users.count)")
         return users.count
     }
     

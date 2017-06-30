@@ -21,9 +21,30 @@ struct FollowService {
         ref.updateChildValues(followData) { (error, _) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
+                success(false)
             }
             
-            success(error == nil)
+            // get all post of the user, display all the posts
+            UserService.posts(for: user) { (posts) in
+                // get the post key
+                let postKeys = posts.flatMap{ $0.key }
+                
+                // build a dictionary to store the data of the users followees
+                var followData = [String : Any]()
+                let timelinePostDict = ["poster_uid": user.uid]
+                
+                postKeys.forEach {
+                    followData["timeline/\(currentUID)/\($0)"] = timelinePostDict
+                }
+                
+                ref.updateChildValues(followData, withCompletionBlock: { (error, ref) in
+                    if let error = error {
+                        assertionFailure(error.localizedDescription)
+                    }
+                    
+                    success(error == nil)
+                })
+            }
         }
     }
     
@@ -38,7 +59,24 @@ struct FollowService {
             if let error = error {
                 assertionFailure(error.localizedDescription)
             }
-            success(error == nil)
+            
+            UserService.posts(for: user) { (posts) in
+                let postKeys = posts.flatMap{ $0.key }
+                
+                var unfollowData = [String : Any]()
+                
+                postKeys.forEach {
+                    unfollowData["timeline/\(currentUID)/\($0)"] = NSNull()
+                }
+                
+                ref.updateChildValues(unfollowData, withCompletionBlock: { (error, ref) in
+                    if let error = error {
+                        assertionFailure(error.localizedDescription)
+                    }
+                    
+                    success(error == nil)
+                })
+            }
         }
     }
     
