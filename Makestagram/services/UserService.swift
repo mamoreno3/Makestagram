@@ -11,6 +11,7 @@ import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
 struct UserService {
+    // write the current user info to the database
     // _ means you dont have to state the argument name while calling the function?
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         // create new username in the database
@@ -30,6 +31,7 @@ struct UserService {
         }
     }
     
+    // return the current user
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
         let ref = Database.database().reference().child("users").child(uid)
         
@@ -42,6 +44,7 @@ struct UserService {
         })
     }
     
+    // return the posts of the current user
     static func posts(for user: User, completion: @escaping ([Post]) -> Void) {
         let ref = Database.database().reference().child("posts").child(user.uid)
         
@@ -59,7 +62,6 @@ struct UserService {
                     .reversed()
                     .flatMap {
                         guard let post = Post(snapshot: $0) else {
-                            print("1")
                             return nil
                         }
                         
@@ -77,6 +79,7 @@ struct UserService {
         })
     }
     
+    // return the list of users excluding the current user
     static func usersExcludingCurrentUser(completion: @escaping ([User]) -> Void) {
         let currentUser = User.current
         
@@ -110,6 +113,7 @@ struct UserService {
         })
     }
     
+    // return a list of the followers
     static func followers(for user: User, completion: @escaping ([String]) -> Void) {
         let followerRef = Database.database().reference().child("followers").child(user.uid)
         
@@ -120,6 +124,48 @@ struct UserService {
             
             let followersKeys = Array(followerDict.keys)
             completion(followersKeys)
+        })
+    }
+    
+    
+    // return a list of the posts for the timeline
+    static func timeline(completion: @escaping ([Post]) -> Void) {
+        let currentUser = User.current
+        
+        // get the timeline of the currentuser path
+        let timelineRef = Database.database().reference().child("timeline").child(currentUser.uid)
+        
+        // retrieve the posts from the timeline
+        timelineRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            let dispatchGroup = DispatchGroup()
+            
+            var posts = [Post]()
+            
+            for postSnap in snapshot {
+                guard let postDict = postSnap.value as? [String : Any],
+                      let posterUID = postDict["poster_uid"] as? String
+                else {
+                    return
+                }
+                
+                dispatchGroup.enter()
+                
+                PostService.show(forKey: postSnap.key, posterUID: posterUID) { (post) in
+                    if let post = post {
+                        posts.append(post)
+                    }
+                    
+                    dispatchGroup.leave()
+                }
+            }
+            
+            dispatchGroup.notify(queue: .main, execute: {
+                completion(posts.reversed())
+            })
         })
     }
 }

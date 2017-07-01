@@ -27,7 +27,8 @@ class HomeViewController: UIViewController {
         
         configureTableView()
         
-        UserService.posts(for: User.current) { (posts) in
+        UserService.timeline { (posts) in
+            print(posts.count)
             self.posts = posts
             self.tableView.reloadData()
         }

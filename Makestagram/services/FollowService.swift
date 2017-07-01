@@ -37,6 +37,7 @@ struct FollowService {
                     followData["timeline/\(currentUID)/\($0)"] = timelinePostDict
                 }
                 
+                // update the timeline based on the following functionality
                 ref.updateChildValues(followData, withCompletionBlock: { (error, ref) in
                     if let error = error {
                         assertionFailure(error.localizedDescription)
@@ -69,6 +70,7 @@ struct FollowService {
                     unfollowData["timeline/\(currentUID)/\($0)"] = NSNull()
                 }
                 
+                // update the timeline based on the following functionality
                 ref.updateChildValues(unfollowData, withCompletionBlock: { (error, ref) in
                     if let error = error {
                         assertionFailure(error.localizedDescription)
