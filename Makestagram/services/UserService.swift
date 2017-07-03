@@ -138,7 +138,7 @@ struct UserService {
         // retrieve the posts from the timeline
         timelineRef.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
-                return
+                return completion([])
             }
             
             let dispatchGroup = DispatchGroup()
@@ -149,7 +149,7 @@ struct UserService {
                 guard let postDict = postSnap.value as? [String : Any],
                       let posterUID = postDict["poster_uid"] as? String
                 else {
-                    return
+                    continue
                 }
                 
                 dispatchGroup.enter()
