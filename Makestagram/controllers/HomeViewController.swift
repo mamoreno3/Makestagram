@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    let refreshControl = UIRefreshControl()
 
     // this allows us to convert a date to a formatted string
     let timestampFormatter: DateFormatter = {
@@ -43,6 +44,22 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         // remove seperator from cells
         tableView.separatorStyle = .none
+        
+        // add pull to refresh 
+        refreshControl.addTarget(self, action: #selector(reloadTimeline), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    func reloadTimeline() {
+        UserService.timeline { (posts) in
+            self.posts = posts
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            self.tableView.reloadData()
+        }
     }
     
 }
